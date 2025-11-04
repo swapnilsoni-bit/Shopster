@@ -23,8 +23,18 @@ const Customers = () => {
         allowSorting
       >
         <ColumnsDirective>
-          {}
-          {customersGrid.map((item, index) => <ColumnDirective key={index} {...item} />)}
+          {customersGrid.map((item, index) => {
+            const { field, headerText, width, textAlign } = item;
+            return (
+              <ColumnDirective
+                key={index}
+                field={field}
+                headerText={headerText}
+                width={width}
+                textAlign={textAlign}
+              />
+            );
+          })}
         </ColumnsDirective>
         <Inject services={[Page, Selection, Toolbar, Edit, Sort, Filter]} />
       </GridComponent>

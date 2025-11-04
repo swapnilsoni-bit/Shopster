@@ -6,11 +6,12 @@ import { Header } from '../components';
 
 const Orders = () => {
   const editing = { allowDeleting: true, allowEditing: true };
+
   return (
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
       <Header category="Page" title="Orders" />
       <GridComponent
-        id="gridcomp"
+        id="ordergrid"
         dataSource={ordersData}
         allowPaging
         allowSorting
@@ -20,12 +21,24 @@ const Orders = () => {
         editSettings={editing}
       >
         <ColumnsDirective>
-          {}
-          {ordersGrid.map((item, index) => <ColumnDirective key={index} {...item} />)}
+          {ordersGrid.map((item, index) => {
+            const { field, headerText, width, textAlign, type } = item;
+            return (
+              <ColumnDirective
+                key={index}
+                field={field}
+                headerText={headerText}
+                width={width}
+                textAlign={textAlign}
+                type={type}
+              />
+            );
+          })}
         </ColumnsDirective>
-        <Inject services={[Resize, Sort, ContextMenu, Filter, Page, ExcelExport, Edit, PdfExport]} />
+        <Inject services={[Resize, Sort, ContextMenu, Filter, Page, ExcelExport, PdfExport, Edit]} />
       </GridComponent>
     </div>
   );
 };
+
 export default Orders;

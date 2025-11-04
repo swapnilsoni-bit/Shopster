@@ -36,8 +36,18 @@ const ColorMapping = () => {
             />
           </SeriesCollectionDirective>
           <RangeColorSettingsDirective>
-            {}
-            {rangeColorMapping.map((item, index) => <RangeColorSettingDirective key={index} {...item} />)}
+            {rangeColorMapping.map((item, index) => {
+              const { label, start, end, colors } = item;
+              return (
+                <RangeColorSettingDirective
+                  key={index}
+                  label={label}
+                  start={start}
+                  end={end}
+                  colors={colors}
+                />
+              );
+            })}
           </RangeColorSettingsDirective>
         </ChartComponent>
       </div>

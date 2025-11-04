@@ -22,8 +22,20 @@ const Area = () => {
         >
           <Inject services={[SplineAreaSeries, DateTime, Legend]} />
           <SeriesCollectionDirective>
-            {}
-            {areaCustomSeries.map((item, index) => <SeriesDirective key={index} {...item} />)}
+            {areaCustomSeries.map((item, index) => {
+              const { dataSource, xName, yName, name, opacity, type } = item;
+              return (
+                <SeriesDirective
+                  key={index}
+                  dataSource={dataSource}
+                  xName={xName}
+                  yName={yName}
+                  name={name}
+                  opacity={opacity}
+                  type={type}
+                />
+              );
+            })}
           </SeriesCollectionDirective>
         </ChartComponent>
       </div>

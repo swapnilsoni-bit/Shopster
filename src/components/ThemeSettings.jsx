@@ -22,39 +22,36 @@ const ThemeSettings = () => {
           >
             <MdOutlineCancel />
           </button>
-
         </div>
         <div className="flex-col border-t-1 border-color p-4 ml-4">
           <p className="font-semibold text-xl ">Theme Option</p>
 
           <div className="mt-4">
-            <input
-              type="radio"
-              id="light"
-              name="theme"
-              value="Light"
-              className="cursor-pointer"
-              onChange={setMode}
-              checked={currentMode === 'Light'}
-            />
-            {}
-            <label htmlFor="light" className="ml-2 text-md cursor-pointer">
-              Light
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label className="cursor-pointer flex items-center">
+              <input
+                type="radio"
+                name="theme"
+                value="Light"
+                className="cursor-pointer"
+                onChange={setMode}
+                checked={currentMode === 'Light'}
+              />
+              <span className="ml-2 text-md">Light</span>
             </label>
           </div>
           <div className="mt-2">
-            <input
-              type="radio"
-              id="dark"
-              name="theme"
-              value="Dark"
-              onChange={setMode}
-              className="cursor-pointer"
-              checked={currentMode === 'Dark'}
-            />
-            {}
-            <label htmlFor="dark" className="ml-2 text-md cursor-pointer">
-              Dark
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label className="cursor-pointer flex items-center">
+              <input
+                type="radio"
+                name="theme"
+                value="Dark"
+                onChange={setMode}
+                className="cursor-pointer"
+                checked={currentMode === 'Dark'}
+              />
+              <span className="ml-2 text-md">Dark</span>
             </label>
           </div>
         </div>

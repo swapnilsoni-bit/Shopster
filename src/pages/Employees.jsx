@@ -6,7 +6,6 @@ import { Header } from '../components';
 
 const Employees = () => {
   const toolbarOptions = ['Search'];
-
   const editing = { allowDeleting: true, allowEditing: true };
 
   return (
@@ -14,21 +13,30 @@ const Employees = () => {
       <Header category="Page" title="Employees" />
       <GridComponent
         dataSource={employeesData}
-        width="auto"
         allowPaging
         allowSorting
-        pageSettings={{ pageCount: 5 }}
+        contextMenuItems={['Copy', 'ExcelExport', 'PdfExport']}
         editSettings={editing}
         toolbar={toolbarOptions}
       >
         <ColumnsDirective>
-          {}
-          {employeesGrid.map((item, index) => <ColumnDirective key={index} {...item} />)}
+          {employeesGrid.map((item, index) => {
+            const { field, headerText, width, textAlign } = item;
+            return (
+              <ColumnDirective
+                key={index}
+                field={field}
+                headerText={headerText}
+                width={width}
+                textAlign={textAlign}
+              />
+            );
+          })}
         </ColumnsDirective>
         <Inject services={[Search, Page]} />
-
       </GridComponent>
     </div>
   );
 };
+
 export default Employees;

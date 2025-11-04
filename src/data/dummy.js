@@ -10,6 +10,7 @@ import { HiOutlineRefresh } from 'react-icons/hi';
 import { TiTick } from 'react-icons/ti';
 import { GiLouvrePyramid } from 'react-icons/gi';
 import { GrLocation } from 'react-icons/gr';
+
 import avatar from './avatar.jpg';
 import avatar2 from './avatar2.jpg';
 import avatar3 from './avatar3.png';
@@ -21,7 +22,6 @@ import product4 from './product4.jpg';
 import product5 from './product5.jpg';
 import product6 from './product6.jpg';
 import product7 from './product7.jpg';
-import product8 from './product8.jpg';
 
 export const gridOrderImage = (props) => (
   <div>
@@ -44,23 +44,12 @@ export const gridOrderStatus = (props) => (
 );
 
 export const kanbanGrid = [
-  { headerText: 'To Do',
-    keyField: 'Open',
-    allowToggle: true },
-
-  { headerText: 'In Progress',
-    keyField: 'InProgress',
-    allowToggle: true },
-
-  { headerText: 'Testing',
-    keyField: 'Testing',
-    allowToggle: true,
-    isExpanded: false },
-
-  { headerText: 'Done',
-    keyField: 'Close',
-    allowToggle: true },
+  { headerText: 'To Do', keyField: 'Open', allowToggle: true },
+  { headerText: 'In Progress', keyField: 'InProgress', allowToggle: true },
+  { headerText: 'Testing', keyField: 'Testing', allowToggle: true, isExpanded: false },
+  { headerText: 'Done', keyField: 'Close', allowToggle: true },
 ];
+
 const gridEmployeeProfile = (props) => (
   <div className="flex items-center gap-2">
     <img
@@ -78,25 +67,23 @@ const gridEmployeeCountry = (props) => (
     <span>{props.Country}</span>
   </div>
 );
-export const EditorData = () => (
+
+export const EditorData = (
   <div>
-    <h3>Hi, I'm Swapnil Soni, and I recently built a 
-      dynamic dashboard website using React JS, showcasing
-       my front-end development skills. For this project, I 
-       integrated the Syncfusion UI library to create an interactive,
-        visually engaging user interface with ready-made, 
-        high-quality components. The dashboard allows users 
-        to view and manage data seamlessly, featuring real-time
-         updates, intuitive navigation, and a responsive design. 
-         By leveraging Syncfusion's robust tools alongside modern React 
-         libraries, I focused on optimizing performance and delivering a 
-         smooth, device-friendly experience. This project highlights my 
-         ability to transform complex data into user-friendly insights 
-         and underscores my proficiency with React JS and advanced front-end 
-         tools. 
-         </h3>
+    <h3>
+      Hi, I&apos;m Swapnil Soni, and I recently built a dynamic dashboard website using React JS,
+      showcasing my front-end development skills. For this project, I integrated the Syncfusion
+      UI library to create an interactive, visually engaging user interface with ready-made,
+      high-quality components. The dashboard allows users to view and manage data seamlessly,
+      featuring real-time updates, intuitive navigation, and a responsive design. By leveraging
+      Syncfusion&apos;s robust tools alongside modern React libraries, I focused on optimizing
+      performance and delivering a smooth, device-friendly experience. This project highlights
+      my ability to transform complex data into user-friendly insights and underscores my
+      proficiency with React JS and advanced front-end tools.
+    </h3>
   </div>
 );
+
 const customerGridImage = (props) => (
   <div className="image flex gap-4">
     <img
@@ -113,10 +100,14 @@ const customerGridImage = (props) => (
 
 const customerGridStatus = (props) => (
   <div className="flex gap-2 justify-center items-center text-gray-700 capitalize">
-    <p style={{ background: props.StatusBg }} className="rounded-full h-3 w-3" />
+    <p
+      style={{ background: props.StatusBg }}
+      className="rounded-full h-3 w-3"
+    />
     <p>{props.Status}</p>
   </div>
 );
+
 export const areaPrimaryXAxis = {
   valueType: 'DateTime',
   labelFormat: 'y',
@@ -134,13 +125,14 @@ export const areaPrimaryYAxis = {
   majorTickLines: { width: 0 },
   minorTickLines: { width: 0 },
   labelStyle: { color: 'gray' },
-
 };
+
 export const barPrimaryXAxis = {
   valueType: 'Category',
   interval: 1,
   majorGridLines: { width: 0 },
 };
+
 export const barPrimaryYAxis = {
   majorGridLines: { width: 0 },
   majorTickLines: { width: 0 },
@@ -3059,13 +3051,12 @@ export const dropdownData = [
     Time: 'May 2021',
   },
 ];
-export const SparklineAreaData = [
+export const SparkLineAreaData = [
   { x: 1, yval: 2 },
   { x: 2, yval: 6 },
   { x: 3, yval: 8 },
   { x: 4, yval: 5 },
   { x: 5, yval: 10 },
-
 ];
 
 export const lineCustomSeries = [

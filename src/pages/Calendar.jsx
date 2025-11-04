@@ -5,7 +5,7 @@ import { DatePickerComponent } from '@syncfusion/ej2-react-calendars';
 import { scheduleData } from '../data/dummy';
 import { Header } from '../components';
 
-const PropertyPane = (props) => <div className="mt-5">{props.children}</div>;
+const PropertyPane = ({ children }) => <div className="mt-5">{children}</div>;
 
 const Scheduler = () => {
   const [scheduleObj, setScheduleObj] = useState();
@@ -16,7 +16,7 @@ const Scheduler = () => {
   };
 
   const onDragStart = (arg) => {
-   
+    // eslint-disable-next-line no-param-reassign
     arg.navigation.enable = true;
   };
 
@@ -31,7 +31,7 @@ const Scheduler = () => {
         dragStart={onDragStart}
       >
         <ViewsDirective>
-          { ['Day', 'Week', 'WorkWeek', 'Month', 'Agenda'].map((item) => <ViewDirective key={item} option={item} />)}
+          {['Day', 'Week', 'WorkWeek', 'Month', 'Agenda'].map((item) => <ViewDirective key={item} option={item} />)}
         </ViewsDirective>
         <Inject services={[Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]} />
       </ScheduleComponent>

@@ -9,13 +9,21 @@ const Kanban = () => (
     <Header category="App" title="Kanban" />
     <KanbanComponent
       id="kanban"
-      keyField="Status"
       dataSource={kanbanData}
       cardSettings={{ contentField: 'Summary', headerField: 'Id' }}
+      dialogSettings={{ fields: [{ text: 'ID', key: 'Id', type: 'TextBox' }, { text: 'Summary', key: 'Summary', type: 'TextArea' }] }}
     >
       <ColumnsDirective>
-        {}
-        {kanbanGrid.map((item, index) => <ColumnDirective key={index} {...item} />)}
+        {kanbanGrid.map((item, index) => {
+          const { key, text } = item;
+          return (
+            <ColumnDirective
+              key={index}
+              keyField={key}
+              transitionColumns={[text]}
+            />
+          );
+        })}
       </ColumnsDirective>
     </KanbanComponent>
   </div>

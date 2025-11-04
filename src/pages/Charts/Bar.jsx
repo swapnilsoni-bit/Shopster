@@ -23,8 +23,19 @@ const Bar = () => {
         >
           <Inject services={[ColumnSeries, Legend, Tooltip, Category, DataLabel]} />
           <SeriesCollectionDirective>
-            {}
-            {barCustomSeries.map((item, index) => <SeriesDirective key={index} {...item} />)}
+            {barCustomSeries.map((item, index) => {
+              const { dataSource, xName, yName, name, type } = item;
+              return (
+                <SeriesDirective
+                  key={index}
+                  dataSource={dataSource}
+                  xName={xName}
+                  yName={yName}
+                  name={name}
+                  type={type}
+                />
+              );
+            })}
           </SeriesCollectionDirective>
         </ChartComponent>
       </div>
